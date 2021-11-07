@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Database\Libs\BlueprintTrait;
 
-class CreateNews extends Migration
+class TakadaYukiTweets extends Migration
 {
     use BlueprintTrait;
 
@@ -16,11 +16,11 @@ class CreateNews extends Migration
      */
     public function up()
     {
-        Schema::create('news', function (Blueprint $table) {
+        Schema::create('takada_yuki_tweets', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title', 255);
-            $table->text('content');
-            $table->tinyInteger('status')->default(0);
+            $table->string('account_name')->comment('アカウント名');
+            $table->string('tweet_id')->unique('tweet_id_unique')->comment('ツイートID');
+            $table->string('tweet_url')->comment('ツイートURL');
             $this->dateTimes($table);
         });
     }
@@ -32,6 +32,6 @@ class CreateNews extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('news');
+        Schema::dropIfExists('takada_yuki_tweets');
     }
 }
