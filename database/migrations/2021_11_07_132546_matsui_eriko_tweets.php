@@ -17,10 +17,12 @@ class MatsuiErikoTweets extends Migration
     public function up()
     {
         Schema::create('matsui_eriko_tweets', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('account_name')->comment('アカウント名');
-            $table->string('tweet_id')->unique('tweet_id_unique')->comment('ツイートID');
-            $table->string('tweet_url')->comment('ツイートURL');
+          $table->bigIncrements('id');
+          $table->string('account_name')->comment('アカウント名');
+          $table->string('tweet_id')->unique('tweet_id_unique')->comment('ツイートID');
+          $table->string('tweet_url')->comment('ツイートURL');
+          $table->text('content')->comment('ツイート本文');
+          $table->string('tweet_source')->comment('クライアント名');
             $this->dateTimes($table);
         });
     }

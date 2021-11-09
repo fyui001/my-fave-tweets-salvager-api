@@ -21,6 +21,8 @@ class TakadaYukiTweets extends Migration
             $table->string('account_name')->comment('アカウント名');
             $table->string('tweet_id')->unique('tweet_id_unique')->comment('ツイートID');
             $table->string('tweet_url')->comment('ツイートURL');
+            $table->text('content')->comment('ツイート本文');
+            $table->string('tweet_source')->comment('クライアント名');
             $this->dateTimes($table);
         });
     }
