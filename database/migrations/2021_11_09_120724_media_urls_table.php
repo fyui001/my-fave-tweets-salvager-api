@@ -20,7 +20,7 @@ class MediaUrlsTable extends Migration
             $table->bigIncrements('id');
             $table->string('tweet_id')->comment('ツイートID');
             $table->string('media_key')->unique('media_key_unique')->comment('メディアキー');
-            $table->string('url')->unique('url_unique')->comment('リンク');
+            $table->string('url')->comment('リンク');
             $table->string('media_type')->comment('形式');
             $this->dateTimes($table);
         });
